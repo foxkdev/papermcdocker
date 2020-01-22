@@ -1,0 +1,23 @@
+################
+### Language ###
+################
+language: bash
+
+services:
+  - docker
+
+#####################
+### Notifications ###
+#####################
+notifications:
+  email: false
+
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
+
+matrix:
+  include:
+  - env: PAPER_VERSION=1.15.2 JAVA_VERSION=11
